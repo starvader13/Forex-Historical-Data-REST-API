@@ -1,0 +1,22 @@
+{
+  "name": "vance-assignment",
+  "version": "1.0.0",
+  "description": "Contains Backend Code for Vance Assignment",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "tsc -w & nodemon dist/index.js"
+  },
+  "author": "Ashutosh Gupta",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.12",
+    "typescript": "^5.5.4"
+  }
+}
