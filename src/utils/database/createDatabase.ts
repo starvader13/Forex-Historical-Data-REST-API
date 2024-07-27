@@ -1,6 +1,6 @@
 import { Database } from "sqlite3";
-import accessDatabase from "../config/db"
-import { Err } from "../types";
+import accessDatabase from "../../config/db"
+import { Err } from "../../types";
 
 const createDatabase = () => {
     const db: Database = accessDatabase();

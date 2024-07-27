@@ -1,6 +1,6 @@
 import { Database, RunResult } from "sqlite3";
-import { Err, ScrappperResult } from "../types";
-import accessDatabase from "../config/db";
+import { Err, ScrappperResult } from "../../types";
+import accessDatabase from "../../config/db";
 
 const insertDatabase = (fromCurrency: string, toCurrency: string, scrappedData: ScrappperResult[]) => {
     const db: Database = accessDatabase();
