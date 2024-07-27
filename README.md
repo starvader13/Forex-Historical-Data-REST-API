@@ -57,6 +57,8 @@ npm run build
 npm start
 ```
 
+- The server will start running on `http://localhost:3000`.
+
 ## Logging System
 
 This project includes a custom logging system that allows you to log messages from any location within the application. The logging system provides an easy way to track the status of various operations and debug issues.
@@ -93,6 +95,8 @@ Scrape historical exchange data and store it in the database.
 - `from` (string, required): The base currency code (e.g., GBP, AED).
 - `to` (string, required): The target currency code (e.g., INR).
 - `period` (string, required): The timeframe for the historical data (e.g., 1W, 1M, 3M, 6M, 1Y).
+
+**Example URL**: `http://localhost:3000/api/forex-data?from=GBP&to=INR&period=1W`
 
 **Responses**:
 
