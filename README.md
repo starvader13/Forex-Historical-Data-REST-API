@@ -110,3 +110,7 @@ The SQLite database is configured in `src/config/db.ts`.
 #### CRON Job Configuration
 
 The CRON jobs are configured in `src/cronjob`.
+
+### License
+
+This project is licensed under the MIT License.
