@@ -12,17 +12,19 @@ This project is a REST API that scrapes historical exchange data from Yahoo Fina
 - **Periodically update data using CRON jobs.**
 - **REST API endpoints to query the stored data.**
 - **Swagger documentation for API endpoints.**
+- **Custom Logger System**: Log messages from any location within the application and read logs directly from the CLI.
 
 
 ## Tech Stack
 
-- Node.js
-- Express.js
-- SQLite
-- TypeScript
-- node-cron
-- Puppeteer
-- Swagger
+- [Node.js](https://nodejs.org/)
+- [Express.js](https://expressjs.com/)
+- [SQLite](https://www.npmjs.com/package/sqlite3)
+- [TypeScript](https://www.typescriptlang.org/)
+- [node-cron](https://www.npmjs.com/package/node-cron)
+- [Puppeteer](https://pptr.dev/)
+- [Swagger](https://swagger.io/)
+- [Zod](https://zod.dev/)
 
 
 ## Getting Started
@@ -34,27 +36,51 @@ This project is a REST API that scrapes historical exchange data from Yahoo Fina
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository:**
 
 ```bash
 git clone https://github.com/starvader13/historical-exchange-data-api.git
 cd historical-exchange-data-api
 ```
 
-2. Install Dependecies
+2. **Install Dependecies:**
 
 ```bash
 npm install
 npx puppeteer browsers install chrome
 ```
 
-3. Start Server
+3. **Start Server:**
 
 ```bash
 npm run build
 npm start
 ```
 
+## Logging System
+
+This project includes a custom logging system that allows you to log messages from any location within the application. The logging system provides an easy way to track the status of various operations and debug issues.
+
+### Logging Messages
+
+To log a message, use the `logger` function. Here's an example of how to setup a logger:
+
+```typescript
+logger({
+    status: false,
+    origin: "database/insertDatabase",
+    logMessage: `Failed To Finalize Statement. Error: ${err.message}`,
+    timestamp: new Date().toISOString()
+});
+```
+
+### Reading Logs
+
+You can read and print the logs directly to the CLI by running the following command:
+
+```bash
+npm run log
+```
 
 ## API Endpoints
 
@@ -103,11 +129,11 @@ Swagger documentation is available at `http://localhost:3000/api/docs`.
 
 ### Configuration
 
-#### Database Configuration
+#### 1. Database Configuration
 
 The SQLite database is configured in `src/config/db.ts`.
 
-#### CRON Job Configuration
+#### 2. CRON Job Configuration
 
 The CRON jobs are configured in `src/cronjob`.
 
