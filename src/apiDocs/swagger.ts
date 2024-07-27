@@ -11,12 +11,13 @@ const options = {
             description: "API documentation for the Historical Exchange Data service"
         },
     },
-    apis:["../routes/*.ts"]
-}
+    apis:["./src/routes/*.ts"]
+};
+
 const specs = swaggerJsDoc(options);
 
 const setupSwagger = (app: Application) => {
-    app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
+    app.use("/api/docs", swaggerUI.serve, swaggerUI.setup(specs));
 };
 
-export default setupSwagger
+export default setupSwagger;
