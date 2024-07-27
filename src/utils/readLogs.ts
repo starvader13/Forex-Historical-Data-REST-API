@@ -24,7 +24,7 @@ const readLogs = (inputFileName: string) => {
     const logFile = path.join(logDir, inputFileName);
 
     fs.readFile(logFile, 'utf-8', (err, data)=>{
-        if(err){
+        if(err || !data){
             console.log("Logs For The File Does Not Exist");
             process.exit(1);
         }

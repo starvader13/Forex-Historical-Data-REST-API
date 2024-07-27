@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "setup": "puppeteer browsers install chrome",
-    "build": "rm -rf dist && tsc -b",
+    "build": "tsc -b",
+    "clean-build": "rm-rf dist && tsc -b",
     "start": "node dist/index.js",
     "dev": "tsc -w & nodemon dist/index.js",
     "log": "node dist/utils/readLogs.js"
