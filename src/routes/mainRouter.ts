@@ -1,8 +1,9 @@
 import {Router, Request, Response} from "express";
+import validateParameter from "../middleware/validateParameter";
 
 const router = Router();
 
-router.post("/forex-data", (req:Request, res: Response)=>{
+router.post("/forex-data", validateParameter, (req: Request, res: Response)=>{
     res.send("hii");
 });
 
