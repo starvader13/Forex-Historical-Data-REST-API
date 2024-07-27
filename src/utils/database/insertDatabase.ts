@@ -23,12 +23,12 @@ const insertDatabase = (fromCurrency: string, toCurrency: string, scrappedData: 
             }); 
         });
     
-        query.finalize((err)=>{
+        query.finalize(async (err)=>{
             if(err){
                 console.error("Failed To Finalize Statement", err.message);
                 db.run("ROLLBACK");
                 
-                logger({
+                await logger({
                     status: false,
                     origin: "database/insertDatabase",
                     logMessage: `Failed To Finalize Statement. Error: ${err.message}`,
@@ -40,7 +40,7 @@ const insertDatabase = (fromCurrency: string, toCurrency: string, scrappedData: 
             console.log("Data Inserted Successfully");
             db.run("COMMIT");
             
-            logger({
+            await logger({
                 status: true,
                 origin: "database/insertDatabase",
                 logMessage: `Data Inserted Successfully`,

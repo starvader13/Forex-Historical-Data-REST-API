@@ -24,7 +24,7 @@ const runScrapper = async (fromCurrency: string, toCurrency: string, period: str
         }
 
         console.log(`Successfully scraped and inserted data for ${fromCurrency} to ${toCurrency} over the period: ${period}.\n`);
-        logger({
+        await logger({
             status: true,
             origin: "cronjob/runScrapper",
             logMessage: `Successfully scraped and inserted data for ${fromCurrency} to ${toCurrency} over the period: ${period}.`,
@@ -33,7 +33,7 @@ const runScrapper = async (fromCurrency: string, toCurrency: string, period: str
 
     }catch (err: any) {
         console.error(`Failed to scrape and insert data for ${fromCurrency} to ${toCurrency} over the period: ${period}. Error: ${err.message}\n`);
-        logger({
+        await logger({
             status: true,
             origin: "cronjob/runScrapper",
             logMessage: `Successfully scraped and inserted data for ${fromCurrency} to ${toCurrency} over the period: ${period}.`,

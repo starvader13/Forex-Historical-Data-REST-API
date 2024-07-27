@@ -3,7 +3,7 @@ import accessDatabase from "../../config/db"
 import { Err } from "../../types";
 import logger from "../logger";
 
-const createDatabase = (): Promise<boolean> => {
+const createDatabase = async (): Promise<boolean> => {
     const db: Database = accessDatabase();
     
     return new Promise((resolve, reject)=>{
@@ -21,11 +21,11 @@ const createDatabase = (): Promise<boolean> => {
                     adjClose TEXT,
                     volume TEXT
                 );
-            `, (err: Err)=>{
+            `, async (err: Err)=>{
                 
                 if(err){
                     console.error("Failed To Create Table", err.message);
-                    logger({
+                    await logger({
                         status: false,
                         origin: "database/createDatabase",
                         logMessage: `Failed To Create Table. Error: ${err.message}`,
@@ -35,7 +35,7 @@ const createDatabase = (): Promise<boolean> => {
                 }
 
                 console.log("Table Created Successfully\n");
-                logger({
+                await logger({
                     status: true,
                     origin: "database/createDatabase",
                     logMessage: `Table Created Successfully`,

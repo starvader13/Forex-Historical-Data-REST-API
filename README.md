@@ -39,8 +39,8 @@ This project is a REST API that scrapes historical exchange data from Yahoo Fina
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/starvader13/historical-exchange-data-api.git
-cd historical-exchange-data-api
+git clone https://github.com/starvader13/Forex-Historical-Data-REST-API.git
+cd Forex-Historical-Data-REST-API
 ```
 
 2. **Install Dependecies:**
