@@ -1,4 +1,4 @@
-import { getTimeFrame, historicalExchangeScrapper } from "../utils";
+import { getTimeFrame, historicalExchangeScrapper, logger } from "../utils";
 import { createDatabase, insertDatabase } from "../utils/database";
 
 const runScrapper = async (fromCurrency: string, toCurrency: string, period: string) => {
@@ -24,9 +24,21 @@ const runScrapper = async (fromCurrency: string, toCurrency: string, period: str
         }
 
         console.log(`Successfully scraped and inserted data for ${fromCurrency} to ${toCurrency} over the period: ${period}.\n`);
+        logger({
+            status: true,
+            origin: "cronjob/runScrapper",
+            logMessage: `Successfully scraped and inserted data for ${fromCurrency} to ${toCurrency} over the period: ${period}.`,
+            timestamp: Date()
+        });
 
     }catch (err: any) {
         console.error(`Failed to scrape and insert data for ${fromCurrency} to ${toCurrency} over the period: ${period}. Error: ${err.message}\n`);
+        logger({
+            status: true,
+            origin: "cronjob/runScrapper",
+            logMessage: `Successfully scraped and inserted data for ${fromCurrency} to ${toCurrency} over the period: ${period}.`,
+            timestamp: Date()
+        });
     }
 };
 
