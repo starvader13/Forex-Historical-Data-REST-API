@@ -6,8 +6,10 @@ const logger = async (logData: LogData) => {
     const logDir = path.join(__dirname, '..', '..', 'logs');
     let logFile: string;
 
-    if(logData.origin === "runScrappper.log"){
+    if(logData.origin.includes("runScrappper.log")){
         logFile = path.join(logDir, 'runScrapper.log');
+    }else if(logData.origin.includes("database")){
+        logFile = path.join(logDir, 'database.log');
     }else{
         return null;
     }

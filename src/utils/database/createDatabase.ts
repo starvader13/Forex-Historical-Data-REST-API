@@ -1,6 +1,7 @@
 import { Database } from "sqlite3";
 import accessDatabase from "../../config/db"
 import { Err } from "../../types";
+import logger from "../logger";
 
 const createDatabase = (): Promise<boolean> => {
     const db: Database = accessDatabase();
@@ -21,11 +22,25 @@ const createDatabase = (): Promise<boolean> => {
                     volume TEXT
                 );
             `, (err: Err)=>{
+                
                 if(err){
                     console.error("Failed To Create Table", err.message);
+                    logger({
+                        status: false,
+                        origin: "database/createDatabase",
+                        logMessage: `Failed To Create Table. Error: ${err.message}`,
+                        timestamp: Date()
+                    });
                     return resolve(false);
                 }
+
                 console.log("Table Created Successfully\n");
+                logger({
+                    status: true,
+                    origin: "database/createDatabase",
+                    logMessage: `Table Created Successfully`,
+                    timestamp: Date()
+                });
                 return resolve(true);
             });
         });

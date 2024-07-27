@@ -1,6 +1,7 @@
 import { Database } from "sqlite3";
 import { Err, ScrappperResult } from "../../types";
 import accessDatabase from "../../config/db";
+import logger from "../logger";
 
 const insertDatabase = (fromCurrency: string, toCurrency: string, scrappedData: ScrappperResult[]): Promise<boolean> => {
     const db: Database = accessDatabase();
@@ -26,10 +27,25 @@ const insertDatabase = (fromCurrency: string, toCurrency: string, scrappedData: 
             if(err){
                 console.error("Failed To Finalize Statement", err.message);
                 db.run("ROLLBACK");
+                
+                logger({
+                    status: false,
+                    origin: "database/insertDatabase",
+                    logMessage: `Failed To Finalize Statement. Error: ${err.message}`,
+                    timestamp: Date()
+                });
                 return resolve(false);
             }
+
             console.log("Data Inserted Successfully");
             db.run("COMMIT");
+            
+            logger({
+                status: true,
+                origin: "database/insertDatabase",
+                logMessage: `Data Inserted Successfully`,
+                timestamp: Date()
+            });
             return resolve(true);
         });
 
