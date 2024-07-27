@@ -47,7 +47,7 @@ cd historical-exchange-data-api
 
 ```bash
 npm install
-npx puppeteer browsers install chrome
+npm run setup
 ```
 
 3. **Start Server:**

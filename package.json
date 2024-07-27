@@ -4,10 +4,11 @@
   "description": "Contains Backend Code for Vance Assignment",
   "main": "index.js",
   "scripts": {
-    "build": "tsc -b",
+    "setup": "puppeteer browsers install chrome",
+    "build": "rm -rf dist && tsc -b",
     "start": "node dist/index.js",
     "dev": "tsc -w & nodemon dist/index.js",
-    "log": "node dist/utils/readLofs.js"
+    "log": "node dist/utils/readLogs.js"
   },
   "author": "Ashutosh Gupta",
   "license": "ISC",
