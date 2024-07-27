@@ -4,8 +4,9 @@
   "description": "Contains Backend Code for Vance Assignment",
   "main": "index.js",
   "scripts": {
+    "dev": "tsc -w & nodemon dist/index.js",
     "build": "tsc -b",
-    "dev": "tsc -w & nodemon dist/index.js"
+    "start": "node dist/index.js"
   },
   "author": "Ashutosh Gupta",
   "license": "ISC",
