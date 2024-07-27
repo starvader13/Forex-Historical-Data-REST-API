@@ -6,3 +6,6 @@ dist
 
 # Enviroment Variabel
 .env
+
+# Database
+exchangeDatabase.db
