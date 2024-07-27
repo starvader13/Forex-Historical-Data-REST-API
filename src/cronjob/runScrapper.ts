@@ -23,10 +23,10 @@ const runScrapper = async (fromCurrency: string, toCurrency: string, period: str
             return console.log('Failed to insert data in database');
         }
 
-        console.log(`Successfully scraped and inserted data for ${fromCurrency} to ${toCurrency} over the period: ${period}.`);
+        console.log(`Successfully scraped and inserted data for ${fromCurrency} to ${toCurrency} over the period: ${period}.\n`);
 
     }catch (err: any) {
-        console.error(`Failed to scrape and insert data for ${fromCurrency} to ${toCurrency} over the period: ${period}. Error: ${err.message}`);
+        console.error(`Failed to scrape and insert data for ${fromCurrency} to ${toCurrency} over the period: ${period}. Error: ${err.message}\n`);
     }
 };
 
