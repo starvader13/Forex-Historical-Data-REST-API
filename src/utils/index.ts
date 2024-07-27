@@ -1,7 +1,7 @@
 import historicalExchangeScrapper from "./historicalExchangeScrapper";
 import getTimeFrame from "./getTimeFrame";
 
-export default {
+export {
     historicalExchangeScrapper,
     getTimeFrame
 };

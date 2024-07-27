@@ -1,5 +1,7 @@
 import createDatabase from "./createDatabase";
+import insertDatabase from "./insertDatabase";
 
-export default {
-    createDatabase
+export {
+    createDatabase,
+    insertDatabase
 }

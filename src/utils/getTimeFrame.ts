@@ -27,8 +27,8 @@ const getTimeFrame = (period: string) => {
     }
 
     return {
-        from: Math.floor(startTime.getTime() / 1000),
-        to: Math.floor(Date.now() / 1000)
+        fromTime: Math.floor(startTime.getTime() / 1000),
+        toTime: Math.floor(Date.now() / 1000)
     };
 };
 
